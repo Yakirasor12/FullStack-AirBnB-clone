@@ -1,10 +1,8 @@
 # FullStack-AirBnB-clone
-Go to cd api 
-run npm i 
-and nodemon
-Then go to cd client 
-run npm i 
-and npm run dev 
+ Go to cd api 
+<br> run npm i , and nodemon
+<br> Then go to cd client 
+<br> run npm i , and npm run dev 
 
 
 and there u go .
