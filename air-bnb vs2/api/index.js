@@ -8,7 +8,7 @@ const { connectDatabase } = require('./config/database');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 const PORT = process.env.PORT || 4000;
 
@@ -33,10 +33,12 @@ app.use(
 const authRoutes = require('./routes/authRoutes');
 const placeRoutes = require('./routes/placeRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
+const adminRoutes = require('./routes/adminRoutes'); 
 
 app.use('/api', authRoutes);
 app.use('/api/places', placeRoutes);
 app.use('/api/bookings', bookingRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.use(errorHandler);
 

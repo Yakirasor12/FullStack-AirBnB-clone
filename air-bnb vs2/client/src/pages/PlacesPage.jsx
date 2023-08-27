@@ -16,7 +16,6 @@ export default function PlacesPage() {
 
 async function removeForm(event, placeLink) {
   event.preventDefault();
-  console.log(placeLink);
 
   try {
     await axios.delete(`/places/updateForm/${placeLink}`);

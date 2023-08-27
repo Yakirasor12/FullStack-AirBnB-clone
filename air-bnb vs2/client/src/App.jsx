@@ -12,6 +12,7 @@ import FormPage from './pages/FormPage';
 import PlacePage from './pages/PlacePage';
 import BookingPage from './pages/BookingPage';
 import BookingsPage from "./pages/BookingsPage";
+import AdminPage from './pages/AdminPage';
 
 
 axios.defaults.baseURL = "http://127.0.0.1:4000/api";
@@ -32,6 +33,7 @@ function App() {
           <Route path="/places/:id" element={<PlacePage />} />
           <Route path="/account/bookings" element={<BookingsPage />} />
           <Route path="/account/bookings/:id" element={<BookingPage />} />
+          <Route path="/admin" element={<AdminPage/>} />
         </Route>
       </Routes>
     </UserContextProvider>

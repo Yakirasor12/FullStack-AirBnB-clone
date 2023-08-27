@@ -23,6 +23,7 @@ async function registerUser(req, res) {
             name,
             email: email.toLowerCase(),
             password: hashedPassword,
+            role: 0, 
         });
 
         res.status(201).json({ message: 'User registered successfully' });
@@ -42,6 +43,7 @@ async function loginUser(req, res) {
             jwt.sign({
                 email: userDoc.email,
                 id: userDoc._id,
+                role:userDoc.role,
             }, jwbSecret, {}, (err, token) => {
                 if (err) throw err;
                 res.cookie('token', token).json(userDoc)
@@ -63,8 +65,8 @@ async function getUserProfile(req, res) {
             const userDoc = await User.findById(userData.id);
 
             if (userDoc) {
-                const { name, email, _id } = userDoc;
-                res.json({ name, email, _id });
+                const { name, email, _id,role } = userDoc;
+                res.json({ name, email, _id,role });
             } else {
                 res.json(null);
             }

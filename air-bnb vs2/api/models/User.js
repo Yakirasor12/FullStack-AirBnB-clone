@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    role: {
+        type: Number,
+        default: 0, 
+    },
 });
 
 // Add a static method for user validation using Joi
