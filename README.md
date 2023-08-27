@@ -4,6 +4,8 @@
 <br> Then go to cd client 
 <br> run npm i , and npm run dev 
 
+** don't forget to clean ur cookies ;)
+
 
 and there u go .
 
