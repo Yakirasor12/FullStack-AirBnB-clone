@@ -35,3 +35,12 @@ img {
     width: 300px;
     max-height: 350px;
 }
+
+@media (min-width: 1400px) and (max-width: 2000px) {
+  .imagesPlaceDiv {
+    max-width: 1500px; /* Set your desired max width */
+    max-height: 800px; /* Set your desired max height */
+    height: 600px;
+    /* Add any other styles you want for screens between 1400px and 2000px */
+  }
+}

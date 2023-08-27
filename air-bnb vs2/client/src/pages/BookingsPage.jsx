@@ -23,13 +23,13 @@ export default function BookingsPage() {
           bookings.map((booking) => (
             <Link
               to={`/account/bookings/${booking._id}`}
-              key={booking}
-              className="flex gap-4 bg-gray-200 rounded-2xl overflow-hidden"
+              key={booking._id}
+              className="flex gap-4 mb-2 bg-gray-200 rounded-2xl overflow-hidden"
             >
               <div className="w-48">
               <PlaceImg place={booking.place}/>
               </div>
-              <div className="py-3 pr-3 grow">
+              <div className="py-3 pr-3 gap-2">
                 <h2 className="text-xl font-bold">{booking.place.title}</h2>
                 <div className="text-xl">
                   <BookingDates booking={booking} className={'mb-2 mt-4 text-gray-500'} />

@@ -15,7 +15,7 @@ export default function PlacePage() {
     if(!id) {
       return;
     }
-    axios.get(`/places/${id}`).then(response =>   {
+    axios.get(`places/${id}`).then(response =>   {
       setPlace(response.data)
     })
   },[id])
@@ -25,7 +25,7 @@ export default function PlacePage() {
  
 
   return (
-    <div className=" mt-4 bg-gray-100 -mx-8 px-8 pt-8">
+    <div className=" mt-4 bg-gray-100 -mx-8 px-8 pt-8 imagesPlaceDiv">
       <h1 className="text-3xl">{place.title}</h1> 
       <AddressLink>{place.address}</AddressLink>
       <PlaceGallery place={place} />

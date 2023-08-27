@@ -3,16 +3,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const helmet = require('helmet');
 const morgan = require('morgan');
 const { connectDatabase } = require('./config/database');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
-app.use(helmet());
 app.use(morgan('dev'));
 
 const PORT = process.env.PORT || 4000;
+
+//Connect to Database
+connectDatabase();
 
 
 // Middleware and other configurations
@@ -26,8 +27,7 @@ app.use(
     })
 );
 
-//Connect to Database
-connectDatabase();
+
 
 // Include routes
 const authRoutes = require('./routes/authRoutes');

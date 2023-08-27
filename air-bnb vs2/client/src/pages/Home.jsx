@@ -17,7 +17,7 @@ export default function Home() {
     <div className=" mt-8 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 lg:grid-cols-4 HomePage">
       {places.length > 0 &&
         places.map((place) => (
-          <Link to={'/place/' + place._id} key={place._id}>
+          <Link to={'/places/' + place._id} key={place._id}>
             <div className="bg-gray-500 mb-2 rounded-2xl flex">
               {place.photos?.[0] && (
                 <img

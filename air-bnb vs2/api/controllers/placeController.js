@@ -3,22 +3,24 @@ const path = require('path');
 const imageDownloader = require('image-downloader');
 const multer = require('multer');
 const Place = require('../models/Place');
+const jwt = require('jsonwebtoken');
+const jwbSecret = process.env.JWT_SECRET;
 
 
 exports.photosMiddleware = multer({ dest: 'uploads/' }) ;
 
 exports.uploadByLink = async (req, res) => {
     const { link } = req.body
-
     const newName = 'photo' + Date.now() + '.jpg';
     await imageDownloader.image({
         url: link,
-        dest: __dirname + '/uploads/' + newName,
+        dest: __dirname.replace('\\controllers',"") + '/uploads/' + newName,
     });
     res.json(newName)
-};
+}
 
 exports.uploadPhotos = (req, res) => {
+
     const uploadedFiles = []
     for (let i = 0; i < req.files.length; i++) {
         const { path, originalname } = req.files[i]
@@ -65,6 +67,21 @@ exports.getPlaceById = async (req, res) => {
     res.json(await Place.findById(id))
 };
 
+exports.removeFormData = async (req,res) =>{
+    try {
+        const placeId = req.params.FormID;
+        const deletedPlace = await Place.findByIdAndDelete(placeId);
+        if (!deletedPlace) {
+            return res.status(404).json({ message: 'Place not found' });
+        }
+        return res.status(200).json({ message: 'Place deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting place:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+
 exports.updatePlace = async (req, res) => {
     const { token } = req.cookies;
     const { id, title, address, addedPhotos, description,
@@ -85,3 +102,5 @@ exports.updatePlace = async (req, res) => {
 exports.getAllPlaces = async (req, res) => {
     res.json(await Place.find())
 };
+
+
