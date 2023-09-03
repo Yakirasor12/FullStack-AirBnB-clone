@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { UserContext } from '../UserContext';
 
-export default function Header() {
- const {user} =  useContext(UserContext);
+export default function Header({searchQuery,setSearchQuery }) {
+  const { user } = useContext(UserContext);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleSearch = () => {
+    setSearchQuery(inputValue);
+  };
   return (
     <div>
       <header className=" flex justify-between">
-        <Link to={'/'} className="flex items-center gap-1">
+        <Link to={"/"} className="flex items-center gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -26,9 +31,15 @@ export default function Header() {
           <span className="font-bold text-xl">airbnb</span>
         </Link>
         <div className="flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gary-300">
-          <div>Search by Name : </div>
-
-          <button className="bg-primary text-white p-1 rounded-full">
+          <input
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Search by Name:"
+          />
+          <button
+            className="bg-primary text-white p-1 rounded-full"
+            onClick={handleSearch}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -46,7 +57,7 @@ export default function Header() {
           </button>
         </div>
         <Link
-          to={ user?'/account':"/login"}
+          to={user ? "/account" : "/login"}
           className="flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4 "
         >
           <svg
@@ -77,11 +88,7 @@ export default function Header() {
               />
             </svg>
           </div>
-          {!!user && (
-            <div>
-              {user.name}
-            </div>
-          )}
+          {!!user && <div>{user.name}</div>}
         </Link>
       </header>
     </div>
