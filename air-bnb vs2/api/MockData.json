@@ -1,0 +1,49 @@
+[{
+  "title": "Elegant Beachfront Duplex w/Private Parking",
+  "address": "Herzliya, Tel Aviv District, Israel",
+  "photos": [
+    "photo1693124373558.jpg",
+    "photo1693124378208.jpg",
+    "photo1693124382532.jpg",
+    "photo1693124386191.jpg",
+    "photo1693124389333.jpg"
+  ],
+  "description": "Welcome to the fabulous Elegant Beachfront Duplex! Located in Marine Heights, this spacious and beautifully designed apartment offers stunning views of the Mediterranean from its lovely balcony. With private underground parking, the amazing Acadia beach, a swimming pool, fantastic nearby restaurants, and so much more, it's the perfect destination for your next vacation. Book today and indulge in a luxurious beachside getaway!",
+  "perks": [
+    "wifi",
+    "parking",
+    "tv",
+    "radio",
+    "pets",
+    "entrance"
+  ],
+  "extraInfo": "Extra Services (available for an additional fee):\n* VIP transfer between the airport and the apartment.\n* Mid-stay full cleaning.\n* Wash & fold pickup and delivery.\n* Late check-out on Saturday.\n",
+  "checkIn": 14,
+  "checkOut": 11,
+  "maxGuests": 4,
+  "price": 250
+},
+{
+  "title": "Luxury One Bedroom Mountain Villa with Pool",
+  "address": "Mount Lebanon Governorate, Lebanon",
+  "photos": [
+    "photo1693124427536.jpg",
+    "photo1693124431584.jpg",
+    "photo1693124435030.jpg",
+    "photo1693124438506.jpg",
+    "photo1693124441852.jpg"
+  ],
+  "description": "Welcome to my cozy home in the heart of Shapira, Tel Aviv! My flatmates and I love to have a good time. If you need any recommendations for the best local eats or want to know where to catch the best sunset, just ask - I'm happy to help! My goal is to make your stay as enjoyable and stress-free as possible, don't hesitate to reach out if you need",
+  "perks": [
+    "wifi",
+    "tv",
+    "radio",
+    "parking",
+    "entrance"
+  ],
+  "extraInfo": "My goal is to make your stay as enjoyable and stress-free as possible, don't hesitate to reach out if you need anything.\nThanks for choosing my humble abode, can't wait to have you over for a good time!",
+  "checkIn": 15,
+  "checkOut": 13,
+  "maxGuests": 5,
+  "price": 320
+}]
