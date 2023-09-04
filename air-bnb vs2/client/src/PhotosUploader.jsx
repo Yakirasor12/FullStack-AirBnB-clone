@@ -5,16 +5,28 @@ export default function PhotosUploader({addedPhotos,onChange}) {
       const [photoLink, setPhotoLink] = useState('');
   
 
-    async function addPhotoByLink(event) {
-      event.preventDefault();
-      const { data: filename } = await axios.post("places/upload-by-link", {
-        link: photoLink,
-      });
-      onChange((prev) => {
-        return [...prev, filename];
-      });
-      setPhotoLink("");
-    }
+async function addPhotoByLink(event) {
+  event.preventDefault();
+
+  if (!photoLink) {
+    alert("Please provide a valid photo link.");
+    return;
+  }
+
+  try {
+    const { data: filename } = await axios.post("places/upload-by-link", {
+      link: photoLink,
+    });
+    onChange((prev) => {
+      return [...prev, filename];
+    });
+    setPhotoLink("");
+  } catch (error) {
+    // Handle the error, e.g., display a user-friendly error message
+    console.error("Error uploading photo by link:", error);
+    alert("An error occurred while uploading the photo.");
+  }
+}
 
     function uploadPhoto(event) {
       const files = event.target.files;

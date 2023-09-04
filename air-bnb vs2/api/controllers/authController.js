@@ -7,25 +7,18 @@ const jwbSecret = process.env.JWT_SECRET;
 // Register a new user
 async function registerUser(req, res) {
     const { name, email, password } = req.body;
-
     try {
-        // Check if the email is already registered
         const existingUser = await User.findOne({ email: email.toLowerCase() });
         if (existingUser) {
             return res.status(409).json({ message: 'Email already registered' });
         }
-
-        // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Create a new user
         const newUser = await User.create({
             name,
             email: email.toLowerCase(),
             password: hashedPassword,
             role: 0, 
         });
-
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
         res.status(500).json({ message: 'Internal Server Error' });

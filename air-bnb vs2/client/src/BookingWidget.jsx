@@ -25,16 +25,34 @@ if(checkIn && checkOut) {
     numberOfNights = differenceInCalendarDays(new Date(checkOut),new Date(checkIn))
 }
 
-async function bookThisPlace(){
-const response = await axios.post("/bookings", {
-    checkIn, checkOut, numberOfGuests, name,phone,
-    place: place._id,
-    price: numberOfNights * place.price,
-    });
-    const bookingId = response.data._id
-    setRedirect(`/account/bookings/${bookingId}`)
+async function bookThisPlace() {
+  if (numberOfNights < 0) {
+    alert("Number of nights cannot be negative.");
+    return;
+  }
 
+  try {
+    const response = await axios.post("/bookings", {
+      checkIn,
+      checkOut,
+      numberOfGuests,
+      name,
+      phone,
+      place: place._id,
+      price: numberOfNights * place.price,
+    });
+
+    const bookingId = response.data._id;
+    setRedirect(`/account/bookings/${bookingId}`);
+  } catch (error) {
+    if (error.response && error.response.status === 401) {
+      alert("Unauthorized access. Please log in.");
+    } else {
+      console.error("Error:", error);
+    }
+  }
 }
+
 
 if(redirect) {
     return <Navigate to={redirect} />
