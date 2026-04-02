@@ -61,4 +61,4 @@ The app will be running at `http://localhost:5173`
 
 ## 👤 Author
 
-**Yakir Asor** — [GitHub](https://github.com/Yakirasor12) · [LinkedIn](https://linkedin.com/in/YOUR_LINKEDIN_URL)
+**Yakir Asor** — [GitHub](https://github.com/Yakirasor12) · [LinkedIn](https://linkedin.com/in/yakirasor/)
